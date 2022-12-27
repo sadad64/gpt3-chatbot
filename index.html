@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css"/>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" rel='stylesheet'>
+    <title>GPT-3 Chatbot</title>
+</head>
+<body>
+    <div class="top-bar">
+        <i class="fa-solid fa-gear setting-btn"></i>
+    </div>
+    <div class="chat-content">
+        <div class="line">
+            <span class="chat-box">안녕하세요? 만나서 반갑습니다.</span>
+        </div>
+        <div class="line">
+            <span class="chat-box mine">당신의 대화는 이렇게 표시됩니다.</span>
+        </div>
+    </div>
+    <div class="chat-input">
+        <input id="text-input" placeholder="여기에 메시지를 입력해주세요."></input>
+        <span class="icon-box">
+            <i id="send" class="fa-solid fa-paper-plane" title="보내기"></i>
+        </span>
+    </div>
+    <div class="right-bar">
+        <div class="top-box">
+            <span class="title">설정</span>
+            <i class="fa-solid fa-arrow-right close-btn"></i>
+        </div>
+        <div class="main-box">
+            <div class="box">
+                <div class="detail">답변 최대 토큰값 조정</div>
+                <div class="slider-box">
+                    <input id="slider-bar" type="range" min="300" max="2048" step="1" value="500">
+                    <input id="slider-num" type="number" min="300" max="2048" step="10" value="500">
+                </div>
+            </div>
+            <div class="box">
+                <div class="detail">AI가 얼마나 창의적인가요?</div>
+                <div class="slider-box">
+                    <input id="temp-bar" type="range" min="0" max="1" step="0.1" value="0.9">
+                    <input id="temp-num" type="number" min="0" max="1" step="0.1" value="0.9">
+                </div>
+            </div>
+        </div>
+
+    </div>
+</body>
+<script type="module" src="./main.js"></script>
+<script type="module">
+    import { setTokenValue, setTemperatureValue } from "./main.js";
+
+    document.querySelector('#slider-bar').addEventListener('change', (event) => {
+        setTokenValue(event)
+    });
+
+    document.querySelector('#slider-num').addEventListener('change', (event) => {
+        setTokenValue(event)
+    });
+    
+    document.querySelector('#temp-bar').addEventListener('change', (event) => {
+        setTemperatureValue(event)
+    });
+
+    document.querySelector('#temp-num').addEventListener('change', (event) => {
+        setTemperatureValue(event)
+    });
+</script>
+</html>

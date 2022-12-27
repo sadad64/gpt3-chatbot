@@ -37,7 +37,7 @@ function chat() {
 
     try {
       const configuration = new Configuration({
-        apiKey: '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',
+        apiKey: 'API key is here',
       });
       const openai = new OpenAIApi(configuration);
       
